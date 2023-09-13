@@ -1,0 +1,14 @@
+version: '3.7'
+services:
+  rabbitmq-demo-app:
+    image: ${GROUP_ID}/rabbitmq.demo.app.service:${SERVICE_VERSION:-latest}
+    ports:
+      - "8080:8080"
+      - "5005:5005"
+    volumes:
+      - "./docker-logs:/workspace/rabbitmq-demo-app/logs"
+    environment:
+      #      - "JAVA_OPTS=-agentlib:jdwp=transport=dt_socket,server=y,suspend=n,address=*:5005 -Xms128m -Xmx256m"
+      - "JAVA_OPTS=-Dapp.clients.scheme=http -Dserver.port=8080 -Dspring.profiles.active=dev-docker -agentlib:jdwp=transport=dt_socket,server=y,suspend=n,address=*:5005 -Xms128m -Xmx256m"
+    networks:
+      - ${GLOBAL_NETWORK:-services}
