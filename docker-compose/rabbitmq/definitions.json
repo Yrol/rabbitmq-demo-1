@@ -33,6 +33,15 @@
       "arguments": {
         "x-queue-type": "classic"
       }
+    },
+    {
+      "name": "demo_exchange_json_queue",
+      "vhost": "/",
+      "durable": true,
+      "auto_delete": false,
+      "arguments": {
+        "x-queue-type": "classic"
+      }
     }
   ],
   "exchanges": [
@@ -53,6 +62,14 @@
       "destination": "demo_exchange_queue",
       "destination_type": "queue",
       "routing_key": "demo_exchange_queue",
+      "arguments": {}
+    },
+    {
+      "source": "demo_exchange",
+      "vhost": "/",
+      "destination": "demo_exchange_json_queue",
+      "destination_type": "queue",
+      "routing_key": "demo_exchange_json_queue",
       "arguments": {}
     }
   ]
