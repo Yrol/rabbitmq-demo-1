@@ -1,7 +1,9 @@
 # RabbitMQ Demo
-RabbitMQ demo application developed in Spring Boot which consist of producers and consumers. Capable of performing the following simple operations.
+RabbitMQ demo application developed in Spring Boot which consist of producers and consumers. It is capable of performing the following simple operations.
 - Publish messages to RabbitMQ queues via GET and POST methods.
 - Consume messages from queues automatically and display in logs.
+
+![](https://i.imgur.com/ujmv1sZ.png)
 
 
 ## Tech Stack
